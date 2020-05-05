@@ -117,6 +117,6 @@ of analysis.
 ## 4. How to run
 The two following scripts should be run in order:
 1. python create_tables.py
-2. python etl.py
-to test the implementation and run example queries, please run the jupyter notebook:
-3. test_queries.ipynb
+2. python etl.py.
+3. To test the implementation and run example queries, please run the jupyter notebook:
+ test_queries.ipynb
