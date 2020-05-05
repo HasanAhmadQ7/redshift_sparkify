@@ -60,7 +60,7 @@ We can see how this star schema allows for efficient analysis in the test_querie
 
 ### 2.3 Distribution and sort keys:
 
-Since we expect the usage of our database to include a lot joins between
+Since we expect the usage of our database to include a lot of joins between
 the dimension tables and the fact table. And since the sizes of our dimension
 tables are small compared to our cluster size (640 GB), we chose an ALL distribution
 style for all the dimension tables. This will allow our users to have
@@ -68,7 +68,8 @@ a good performance on most of their join queries.
 
 As for the facts table, we choose the song_id as a distribution key.
 This is for many reasons. Most importantly, since the songs dimension is
-the largest among the dimension tables (as shown below).
+the largest among the dimension tables (as shown below), it will allow for
+a balanced distribution of data across the cluster slices.
 
 
 | table | #rows | size (mb) |
@@ -79,7 +80,7 @@ the largest among the dimension tables (as shown below).
 | users | 97 | 64 |
 | time | 8023 | 80 |
 
-Sortkeys are chosen to be the same as the join keys. Therefore, primary
+Sortkeys are chosen to be the same as the join keys. Therefore, the primary
 keys of the dimension tables are designated as sortkeys.
 
 
